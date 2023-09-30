@@ -1,13 +1,11 @@
-from dnsUtils import bruteForceDNS, getSubDomains
+from dnsBruteforce import bruteForceDNS
 
 
 def main(domain):
     print("Program started")
 
-    subDomains = getSubDomains()
-
     print(f"Starting bruteforce on {domain}")
-    bruteForceDNS(domain, subDomains)
+    bruteForceDNS(domain)
 
 
 main("Google.com")
