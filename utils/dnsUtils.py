@@ -1,5 +1,5 @@
-from fileUtils import getFileLines
-import socket
+from utils.file_Utils import getFileLines
+import socket, re
 
 
 def getSubDomains():
@@ -15,6 +15,15 @@ def getHostByName(dns):
         return socket.gethostbyname(dns)
     except socket.gaierror:
         return None
+
+
+def isValidDomain(domain):
+    pattern = r"^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
+    if re.match(pattern, domain):
+        return True
+    else:
+        return False
 
 
 # def zoneTransfer(dominio):

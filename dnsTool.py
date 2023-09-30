@@ -1,11 +1,32 @@
-from dnsBruteforce import bruteForceDNS
+from functions.dnsBruteforce import bruteForceDNS
+from utils.dnsUtils import isValidDomain
 
 
-def main(domain):
-    print("Program started")
+def main():
+    banner = """
+         /$$$$$$$  /$$   /$$  /$$$$$$        /$$$$$$$$                  /$$
+        | $$__  $$| $$$ | $$ /$$__  $$      |__  $$__/                 | $$
+        | $$  \ $$| $$$$| $$| $$  \__/         | $$  /$$$$$$   /$$$$$$ | $$
+        | $$  | $$| $$ $$ $$|  $$$$$$          | $$ /$$__  $$ /$$__  $$| $$
+        | $$  | $$| $$  $$$$ \____  $$         | $$| $$  \ $$| $$  \ $$| $$
+        | $$  | $$| $$\  $$$ /$$  \ $$         | $$| $$  | $$| $$  | $$| $$
+        | $$$$$$$/| $$ \  $$|  $$$$$$/         | $$|  $$$$$$/|  $$$$$$/| $$
+        |_______/ |__/  \__/ \______/          |__/ \______/  \______/ |__/             
+                                                                   
+    """
 
-    print(f"Starting bruteforce on {domain}")
-    bruteForceDNS(domain)
+    print(banner)
+
+    domain = input("What domain do you want to explore? | ")
+
+    while not isValidDomain(domain):
+        domain = input("Invalid domain, please try again | ")
+
+    print()
+    print("Searching for subdomains...")
+    print()
+
+    bruteforceResult = bruteForceDNS(domain)
 
 
-main("Google.com")
+main()
