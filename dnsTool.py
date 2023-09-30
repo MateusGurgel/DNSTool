@@ -1,5 +1,6 @@
 from functions.dnsBruteforce import bruteForceDNS
 from utils.dnsUtils import isValidDomain
+import functions.whoIs as whoIs
 
 
 def main():
@@ -21,6 +22,12 @@ def main():
 
     while not isValidDomain(domain):
         domain = input("Invalid domain, please try again | ")
+
+    print()
+    print("Searching for who is information...")
+    print()
+
+    whoISResult = whoIs.query(domain)
 
     print()
     print("Searching for subdomains...")

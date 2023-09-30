@@ -28,7 +28,7 @@ def bruteForceDNS(domain, subDomains=None, threadsAmmount=200):
                 continue
 
             result.append(dns)
-            print(counter.get() + "|" + " DNS Found: " + dns)
+            print(counter.get() + " | " + "DNS Found: " + dns)
 
     for i in range(threadsAmmount):
         thread = threading.Thread(target=bruteForce)
